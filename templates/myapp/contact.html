@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}CONTACT{% endblock title %}
+{% block contactactive %} active {% endblock contactactive %}
+{% block body %}
+<div class="container my-3 bg-light grey" style="width:600px;" "height:400px;" "top-margin:70px;">
+   <form  method='POST' action='/contact/'>
+   {% csrf_token %}
+   <label>contact admin:HARIOM</label>
+   <div class="form-group">
+   <label for="name">your name</label>
+    <input type="text" class="form-control" id="name" name="name"  required="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="email" name="email"aria-describedby="emailHelp" required>
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+  <label for="phone">phone number</label>
+    <input type="number" class="form-control" id="phone_number" name="phone_number" required>
+  </div>
+  <div class="form-group">
+  <label for="content">describe your issue</label>
+    <textarea class="form-control" id="issue" name="issue" cols="30" rows="5" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>  
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Note!</h4>
+  <p><ul>
+     <li>Name must conatin atleast 2 character</li>
+     <li>Phone number must contain 10 digit</li>
+     <li>Issue must be of 10 characters</li>
+     </ul>
+  </p>
+</div>
+{% endblock body %}

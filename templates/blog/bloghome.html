@@ -1,0 +1,33 @@
+{%  extends 'base.html' %}
+{% block title %} bloghome {% endblock title %}
+{% block blogactive %} active {% endblock blogactive %}
+{% block body %}  
+{% if user.is_authenticated %}
+<div class="container pt-3">
+  <form method='POST' action='/blog/bloglogin/'>
+   {% csrf_token %}
+  <p>welcome {{ request.user}}<h2> create your post</h2></p>
+    <input type="text" class="form-control" id="title" placeholder="title"  name='title' required>
+    <textarea class="form-control" id="content" cols="30" rows="5" placeholder="content" name='content' required></textarea>
+    <input type="text" class="form-control" id="author" placeholder="author"  name='author' required>
+    <button type="submit" class="btn btn-primary">post</button>
+  </form>
+</div>
+{% endif %}
+{% for all in all_post %}
+<div class="container pt-3">
+<h2>Blog by {{all.author}}</h2>
+    <div class="card flex-md-row mb-4 box-shadow h-md-250 bg-light grey">
+        <div class="card-body d-flex flex-column align-items-start">
+            <strong class="d-inline-block mb-2 text-primary">World</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">{{ all.title }}</a>
+              </h3>
+              <div class="mb-1 text-muted"></div>
+              <p class="card-text mb-auto">{{ all.content|safe|truncatewords:"80"|linebreaks }}</p>
+              <a href="{% url 'blogdetail' id=all.id %}">Continue reading</a>
+        </div>
+    </div>  
+</div>
+{% endfor %}
+ {% endblock body %}

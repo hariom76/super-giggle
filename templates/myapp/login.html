@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}login{% endblock %}
+{% block body %}
+    <div class="container pt-3 text-center" style="width:500px">
+    <form class="form-signin" method='POST' action='/login_/'>
+    {% csrf_token %}
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="username" class="sr-only">username</label>
+      <input type="text" id="username" class="form-control" placeholder="username" required="" autofocus="" name='username'>
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" class="form-control" placeholder="Password" required="" name='password'>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+    </form>
+</body>
+{% endblock body %}

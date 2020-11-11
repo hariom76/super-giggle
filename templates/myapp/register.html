@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}login{% endblock %}
+{% block body %}
+    <div class="container pt-3 text-center" style="width:500px">
+    <form class="form-signin my-3 " method='POST' action='/register/'>
+    {% csrf_token %}
+      <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
+      <label for="username" class="sr-only">username</label>
+      <input type="username" id="username" class="form-control" placeholder="user name" required="" autofocus="" name="username">
+      <input type="text" id="name1" class="form-control" placeholder="first name" required="" autofocus="" name="name1">
+      <input type="text" id="name2" class="form-control" placeholder="second name" autofocus="" name="name2">
+      <input type="text" id="name3" class="form-control" placeholder="last name" required="" autofocus="" name="name3">
+      <label for="email" class="sr-only">Email address</label>
+      <input type="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="" name="email">
+      <input type="number" id="phone" class="form-control" placeholder="contact number" required="" autofocus="" name="phone">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="password1" class="form-control" placeholder="Password" required="" name="password1">
+      <input type="password" id="password2" class="form-control" placeholder="Confirm Password" required="" name="password2">
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">register</button>
+      <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+    </form>
+</body>
+{% endblock body %}
