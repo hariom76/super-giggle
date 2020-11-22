@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}login{% endblock %}
 {% block body %}
-    <div class="container pt-3 text-center" style="width:500px">
+    <div class="container pt-3 pr-15 pl-15 text-center">
     <form class="form-signin" method='POST' action='/login_/'>
     {% csrf_token %}
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -17,6 +17,6 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
     </form>
-    </div>
+    </div>  
 </body>
 {% endblock body %}
