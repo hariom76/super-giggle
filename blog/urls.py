@@ -6,6 +6,6 @@ urlpatterns=[
     path('blogdetail/<int:id>',views.blogdetail,name='blogdetail'),
     path('bloglogin/',views.bloglogin,name='bloglogin'),
     path('search/',views.search),
-    #path("reply/",views.reply,name='reply')
+    path("profile/<int:id>/",views.profile,name='profile')
 ]
 

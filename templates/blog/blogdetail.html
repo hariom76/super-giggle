@@ -4,7 +4,7 @@
 <div class="jumbotron">
     <div class="container p-3 my-3 ">
         <div class="blog-post">
-            <h1 class="blog-post-title">{{detail.title}} </h1> by <p><strong>{{detail.author}}</strong></p>
+            <a href="{% url 'profile' id=detail.id %}"><h1 class="blog-post-title">{{detail.title}} </h1> by <p><strong>{{detail.user}}</strong></p></a>
             <p>{{ detail.content }}</p>
             <h4>comments</h4>
             {% if user.is_authenticated %}
@@ -41,6 +41,4 @@
         </div>
     </div>
 </div>
-
-
 {% endblock body %}

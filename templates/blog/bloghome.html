@@ -15,7 +15,6 @@
                     <div> 
     <input type="text" class="form-control" id="title" placeholder="title"  name='title' required>
     <textarea class="form-control" id="content" cols="30" rows="5" placeholder="content" name='content' required></textarea>
-    <input type="text" class="form-control" id="author" placeholder="author"  name='author' required>
     <button type="submit" class="btn btn-primary">post</button>
   </form>
   </div>
@@ -28,7 +27,7 @@
 <div class="container pt-3">
     <div class="card flex-md-row mb-4 box-shadow h-md-250 bg-light grey">
         <div class="card-body d-flex flex-column align-items-start">
-            <strong class="d-inline-block mb-2 text-primary">{{all.author}}</strong>
+            <a href="{% url 'profile' id=all.id %}"><strong class="d-inline-block mb-2 text-primary">{{all.user}}</strong></a>
               <h3 class="mb-0">
                 <a class="text-dark" href="#">{{ all.title }}</a>
               </h3>

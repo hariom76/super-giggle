@@ -6,10 +6,11 @@ from django.contrib.auth import login,logout,authenticate
 
 # Create your views here.
 def bloghome(request):
-    all_post=Post.objects.all()
+    all_post = Post.objects.all()
     context={
         "all_post":all_post
     }
+    print("hariom")
     return render(request,'blog/bloghome.html',context)
 #def blogpost(request):
 
@@ -43,8 +44,8 @@ def bloglogin(request):
         print('hello')
         title=request.POST['title']
         content=request.POST['content']
-        author=request.POST['author']
-        c=Post(title=title,content=content,author=author)
+        user = request.user
+        c=Post(title=title,content=content,user=user)
         c.save()
         messages.success(request,'your content is posted')
         return redirect('bloghome')
@@ -54,16 +55,19 @@ def search(request):
     context={
         'all':obj
     }
-    return render(request,'blog/search.html',context)   
-#def reply(request,id):
-#    all_reply = Blogpost.objects.get(id=id)
-##    user = request.user
- #  c = reply(reply=reply,comment=all_reply,user=user)
- #   all = reply.objects.filter(comment=all_reply)
- #   context={
- #       "reply":all
- #  }
- #  return render(request,'blog/reply.html',context)
+    return render(request,'blog/search.html',context)
+
+def profile(request,id):
+    profile = User.objects.get(id=id)
+    post = Post.objects.filter(user=profile)
+    context = {
+        'profile':profile,
+        'post':post
+    }
+    print(post)
+    return render(request,'blog/profile.html',context)
+
+
 
 
 

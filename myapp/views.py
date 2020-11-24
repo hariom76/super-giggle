@@ -1,12 +1,17 @@
 from django.shortcuts import render,HttpResponse,redirect
 from myapp.models import Contact
+from blog.models import Post
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
 def home(request):
-    return render(request,'myapp/home.html')
+    post = Post.objects.get(id=1)
+    context = {
+        'post':post
+    }
+    return render(request,'myapp/home.html',context)
 def about(request):
     return render(request,'myapp/about.html') 
 def contact(request):
@@ -41,10 +46,14 @@ def register(request):
         elif password1!=password2:
             messages.error(request,"password do not match")
             return redirect('register')
+        elif User.objects.filter(username=username).exists():  
+            messages.error(request,"username already taken")
+            return redirect('register') 
         else:
             myuser=User.objects.create_user(username,email=email,password=password1)
             myuser.first_name=name1
             myuser.last_name=name3
+            myuser.phone=phone
             myuser.save()
             messages.success(request,'your account is successfully created')
             return redirect('/')

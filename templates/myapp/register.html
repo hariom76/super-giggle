@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}login{% endblock %}
 {% block body %}
-    <div class="container pt-3 text-center" style="width:500px">
+<div class="row ml-5">
+  <div class="col-8">
+    <div class="container pt-3 text-center">
     <form class="form-signin my-3 " method='POST' action='/register/'>
     {% csrf_token %}
       <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
@@ -22,8 +24,9 @@
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">register</button>
-      <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
     </form>
     </div>
+  </div>
+  </div>  
 </body>
 {% endblock body %}

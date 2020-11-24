@@ -12,16 +12,17 @@
     <a class="btn btn-primary btn-lg" href="{% url 'bloghome' %}" role="button">Go to Blog</a>
   </p>
 </div>
+<p><h2>Latest Blog</h2></p>
 <div class="container bg-dark">
           <div class="card flex-md-row mb-4 box-shadow h-md-250 bg-light grey">
             <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-primary">Read the Blog</strong>
+              <strong class="d-inline-block mb-2 text-primary">{{post.user}}</strong>
               <h3 class="mb-0">
-                <a class="text-dark" href="#">Recent Post</a>
+                <a class="text-dark" href="#">{{post.title}}</a>
               </h3>
               <div class="mb-1 text-muted">Nov 12</div>
-              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-              <a href="/">Continue reading</a>
+              <p class="card-text mb-auto">{{post.content}}</p>
+              <a href="{% url 'blogdetail' id=post.id %}">Continue reading</a>
             </div>
 </div>            
 </div>

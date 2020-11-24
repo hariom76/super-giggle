@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}profile{% endblock title %}
+{% block body %}
+
+<div class="container-fluid">
+    <div class="box-shadow  bg-light success">
+    <div class="row">
+    <div class="col-2">
+        <img class="w-100"src="/static/image/user.png" alt="user">
+    </div>
+    <div class="col-10 my-3">
+    <p class="text-dark"><h4>user:{{profile}}</h4></p>
+    <p class="text-dark"><h4>Email:{{profile.email}}</h4></p>
+    <p class="text-dark"><h4>contact:{{profile.contact}}</h4></p>
+    </div>
+</div>  
+</div>  
+{% for all in post %}
+<div class="container pt-3 bg-success my-3">
+    <div class="card flex-md-row mb-4 box-shadow h-md-250 bg-light grey">
+        <div class="card-body d-flex flex-column align-items-start">
+            <a href="{% url 'profile' id=all.id %}"><strong class="d-inline-block mb-2 text-primary">{{profile}}</strong></a>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">{{ all.title }}</a>
+              </h3>
+              <div class="mb-1 text-muted"></div>
+              <p class="card-text mb-auto">{{ all.content|safe|truncatewords:"80"|linebreaks }}</p>
+              <a href="{% url 'blogdetail' id=all.id %}">Continue reading</a>
+        </div>
+    </div>  
+</div>
+{% endfor %}
+
+
+{% endblock %}
