@@ -27,7 +27,7 @@
 <div class="container pt-3">
     <div class="card flex-md-row mb-4 box-shadow h-md-250 bg-light grey">
         <div class="card-body d-flex flex-column align-items-start">
-            <a href="{% url 'profile' id=all.id %}"><strong class="d-inline-block mb-2 text-primary">{{all.user}}</strong></a>
+            <a href="{% url 'profile' id=all.user.id %}"><strong class="d-inline-block mb-2 text-primary">{{all.user}}</strong></a>
               <h3 class="mb-0">
                 <a class="text-dark" href="#">{{ all.title }}</a>
               </h3>
