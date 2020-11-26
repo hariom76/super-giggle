@@ -2,4 +2,40 @@
 {% block title %} about {% endblock title %}
 {% block aboutactive %} active {% endblock aboutactive %}
 {% block body %}
+<div class="position-relative overflow-hidden p-1 p-md-5 m-md-3 text-left bg-light">
+    <div class="col-md-10 p-lg-2 mx-auto">
+      <h1 class="display-4 font-weight-normal">UHarry</h1>
+      <p class="lead font-weight-normal">
+        This is a dynamic website , here you can make post and comment to others
+        only if you are logged in. To get login you have to first register 
+        you can become popular by your post.YOU can read others post
+      </p>
+      <a class="btn btn-outline-secondary" href="{% url 'contact' %}">Contact admin</a>
+    </div>
+    <div class="product-device shadow-sm d-none d-md-block"></div>
+    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+</div>
+<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="row">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">About Admin</h1>
+      <ul>
+        <li><p class="lead my-1">Name: Hariom Mandal</p></li>
+      <li><p class="lead my-1">currently studying in Asansol Engineering college</p></li>
+      <li><p class="lead my-1">Btech in CSE</p></li>
+      <li><p class="lead my-3">intersested in Web Development</p></li>
+      <li><p class="lead my-3">location: Dhanbad ,Jharkhand</p></li>
+      <p class="lead mb-0"><a href="{% url 'contact' %}" class="text-white font-weight-bold">contact admin</a></p>
+      </ul>
+    </div>
+    <div class="col-md-6">
+        <div class="container">
+        <img src="/static/image/hariom444.jpg" class="rounded mx-auto d-block" alt="...">
+        <center><p class="lead my-3"><button><a href="https://www.linkedin.com/in/hariom-mandal-30710b185/">linkedin  </a></button>
+            <button><a href="https://www.facebook.com/hariom.mandal.568">  facebook</a></button></p></center>
+        </div>
+    </div>
+    </div>
+  </div>
+
 {% endblock body %}

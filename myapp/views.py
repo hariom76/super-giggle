@@ -7,6 +7,9 @@ from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
 def home(request):
+    if request.method=='POST':
+        messages.error(request,"you have to login first")
+        return redirect('login_')
     post = Post.objects.get(id=1)
     context = {
         'post':post

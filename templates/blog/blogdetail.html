@@ -8,6 +8,14 @@
             <a href="{% url 'profile' id=detail.user.id %}">by <p><strong>{{detail.user}}</strong></p></a>
             <p>{{ detail.content }}</p>
             <h4>comments</h4>
+            <form method="POST" action="{% url 'home' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">enter your comments</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"></textarea>
+                    <input type="submit"></input>
+                </div>
+            </form>
             {% if user.is_authenticated %}
             <form method="POST" action="{% url 'blogdetail' detail.id %}">
                 {% csrf_token %}
